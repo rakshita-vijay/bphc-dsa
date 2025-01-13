@@ -1,0 +1,59 @@
+STL: Standard Template Library
+
+for using cin, cout - write "using namespace std;"
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+operation on 2 numbers: <SEE CODE>
+
+sum - even or odd?: <SEE CODE>
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+object-oriented design: style of writing programs using objects & their interactions
+
+design goals:
+1) Robustness
+2) Adaptability
+3) Reusability
+
+design principles:
+4) Abstraction: ADTs are realized by classes in C++
+5) Encapsulation: access to data is provided through member functions
+6) Modularity: objects can be organized in a hierarchy
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+class Passenger {
+  private:
+    string name;
+    MealType mealPref;
+    bool isFreqFlyer;
+    string freqFlyerNo;
+
+  public:
+    Passenger();
+
+    bool isFrequentFlyer() const {
+      return isFreqFlyer;
+    }
+
+    void makeFrequentFlyer(const string& newFreqFlyerNo) {
+      isFreqFlyer = true;
+      freqFlyerNo = newFreqFlyerNo;
+    }
+};
+
+int main() {
+  Passenger pass;
+  if (!pass.isFrequentFlyer()) {
+    pass.makeFrequentFlyer (“12345”);
+  }
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+public access modifiers: <SEE CODE>
+private access modifiers: <SEE CODE>
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

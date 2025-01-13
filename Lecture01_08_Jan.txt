@@ -1,0 +1,51 @@
+fibonacci - recursive or iterative?:
+-----------------------------------
+f(n) = f(n-1) + f(n-2)
+
+Iterative > Recursive
+why? : f(x) might have to be calculated multiple times over during recursion
+       time complexity: exponential (2^n)
+
+       iteration uses memorization
+       time complexity: linear (n)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+problem-solving process:
+-----------------------
+mathematical model ----> abstract data type ----> data structures
+informal algorithm     pseudo-language program      c++ program
+
+examples:
+· finding currents in electrical circuits
+· predicting spread of COVID-19
+· language translator
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Abstract Data Type (ADT): logical description of how we view the data and the operations that are allowed without knowing how they will be implemented
+
+Data Structures: physical implementation of ADTs
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Greedy Algorithm: used to get a solution as quickly as possible
+----------------
+SET greedy_graph_coloring (Input: G: GRAPH, Output: NewClr: SET) {
+  NewClr <-- ∅;
+  for (each uncolored vertex ‘v’ ∈ G) {
+    if ‘v’ is not adjacent to any vertex in NewClr {
+      v <-- colored;
+      NewClr <-- NewClr ∪ ‘v’;
+    }
+  }
+}
+
+GRAPH ADT: G
+1) graphNew(): creating a graph
+2) addVertex (v)
+3) addEdge (v1, v2)
+4) getVertex (uncolored)
+5) markVertex (colored)
+6) ...
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

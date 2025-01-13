@@ -1,0 +1,90 @@
+protected access modifier: <SEE CODE>
+
+single layer inheritance: <SEE CODE>
+
+copy constructor: <SEE CODE>
+
+types of constructors: Default, Parameterized, Copy
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+inheritance:
+-----------
+class Person {
+  private:
+    string name;
+    int Aadhaar;
+
+  public:
+    void print();
+    string getName();
+};
+
+class Student : public Person {
+  private:
+    string branch;
+    int gradYear;
+    double cgpa;
+    string idNo;
+
+  public:
+    void print();
+};
+
+class inheritance diagram:
+-------------------------
+ Person
+   ^
+   |
+   |
+Student
+
+student multi inheritance: <SEE CODE>
+animal multilevel inheritance: <SEE CODE>
+
+multilevel inheritance diagram:
+------------------------------
+      A
+      ^
+      |
+      |
+      B
+      ^
+      |
+      |
+      C
+
+diamond inheritance:
+-------------------
+      Person      // base class
+      ^    ^
+      |    |
+  -----    -----
+  |            |
+Father       Mother
+  ^            ^
+  |            |
+  ------  ------
+       |  |
+       Child
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+polymorphism --|
+               |--> compile time --|
+               |                   |--> function overloading
+               |                   |--> operator overloading
+               |
+               |--> run time --> virtual functions
+
+function overloading: <SEE CODE>
+
+operator overloading: <SEE CODE>
+
+virtual function: member function in the base class that you redefine in a derived class
+when accessing virtual functions that are overridden go to the child-most class
+when accessing NON-virtual functions that are overridden, go to parent class
+
+function overriding: <SEE CODE>
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
