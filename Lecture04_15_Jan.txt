@@ -1,0 +1,48 @@
+friend class: class whose members have access to the private members of another class
+
+<SEE CODE>
+
+not transitive friendship
+if A is friend of B, B need not be friend of A
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+abstract class:
+--------------
+what is the need?
+
+if a class inheriting an abstract class does not provide a definition for the pure virtual function, then what will happen?
+
+virtual functions: basically used to define abstract mehods that are described later on
+                   mainly used to achieve Runtime polymorphism
+
+virtual: go to base-most daughter / child class
+non-virtual: go to parent-most class
+
+virtual functions: <SEE CODE>
+
+child class must implement (give description) of abstract method from parent class (only definition existed), else child class will also be abstract
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+design patterns:
+---------------
+template <typename T>
+T myMax(T x, T y) {
+  return (x > y) ? x : y;
+}
+
+int main() {
+  cout << myMax<int>(4, 8) << endl;
+  cout << myMax<char>('b', 'm') << endl;
+  return 0;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+standard template library (STL):
+-------------------------------
+a library of container classes, algorithms, iterators, functors
+container: data structures (array, stack, queue, etc.)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
