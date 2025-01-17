@@ -44,5 +44,6 @@ standard template library (STL):
 -------------------------------
 a library of container classes, algorithms, iterators, functors
 container: data structures (array, stack, queue, etc.)
+STL functions: insert, append, swap, size, resize, reverse etc.
 
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

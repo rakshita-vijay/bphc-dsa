@@ -1,0 +1,76 @@
+arrays:
+------
+to read, process, and print x values and keep those in memory throughout execution
+
+one variable for multiple values
+
+dynamic arrays:
+--------------
+applications: maths (vectors, matrices, polynomials, etc.)
+              DBs,
+              complers (control flow),
+              dynamic memory allocation
+
+arr.insertItem(5);
+arr.insertItem(3);
+arr.insertItem(11);
+
+arr.display();
+
+arr.insertItemAtIndex(1, 7); // index, value to be inserted
+arr.sort();
+
+cout << arr.getSize() << endl;
+arr.deleteItem(11); // value
+arr.deleteItem(16);
+arr.deleteItemFromIndex(0);
+arr.deleteItemFromIndex(1);
+
+shrink:
+------
+void Dynamic1DArray :: shrink() {
+  capacity >>= 1;
+  int *newArr = new int[capacity];
+
+  for (int i = 0; i < size; i++) {
+    newArr[i] = arr[i];
+  }
+
+  // update the global array pointer
+  arr = newArr;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+sorting and searching in array:
+------------------------------
+void Dynamic1DArray :: sort() {
+  for (int j = 1; j < size; j++) {
+    int key = arr[j];
+    int i = (j - 1);
+    while (i > -1 && arr[i]>key) {
+      arr[i + 1] = arr[i];
+      i = i - 1;
+    }
+    arr[i + 1] = key;
+  }
+}
+
+int Dynamic1DArray :: binarySearch(const int item) {
+  int low = 0, high = size - 1;
+  while (low <= high) {
+    int mid = low + ((high – low) >> 1);
+    if (item == arr[mid]) {
+      return mid;
+    }
+    if (item < arr[mid]) {
+      high = mid - 1;
+    }
+    else{
+      low = mid + 1;
+    }
+  }
+  return -1;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
