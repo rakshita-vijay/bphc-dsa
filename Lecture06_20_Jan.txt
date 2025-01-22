@@ -1,0 +1,159 @@
+linked lists:
+------------
+A --> B --> C --> ...
+
+PCB: Process Control Block
+
+singly linked list:
+------------------
+auto (keyword): specifies that the type of the variable that is being declared will be automatically deduced from its initializer
+
+list<int> myLinkedList = {10, 20, 30};
+auto it = myLinkedList.begin();
+myLinkedList.insert(it, 3);
+
+class StringNode {
+  private:
+    string elem;       // Stores the element
+    StringNode* next;  // Pointer to the next node in the list
+
+    friend class StringLinkedList; // Allows the linked list class to access private members
+};
+
+class StringLinkedList {
+  public:
+    StringLinkedList();             // Constructor
+    ~StringLinkedList();            // Destructor
+
+    bool empty() const;             // Check if the list is empty
+    const string& front() const;    // Get the front element
+    void addFront(const string& e); // Add element to the front
+    void removeFront();             // Remove the front element
+
+  private:
+    StringNode* head;              // Pointer to the first node
+};
+
+StringLinkedList::StringLinkedList() : head(NULL) { }
+
+StringLinkedList::~StringLinkedList() {
+  while (!empty()) {
+    removeFront(); // Clear the list
+  }
+}
+
+bool StringLinkedList::empty() const { // is list empty
+  return head == nullptr;
+}
+
+const string& StringLinkedList::front() const {
+  return head->elem;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+inserting at the head:
+---------------------
+· create a new node
+· store data in this node
+· have new node point to old head
+· update head to point to new node
+
+void StringLinkedList::addFront(const string& e) {
+  StringNode* v = new StringNode; // Step 1: Create a new node
+  v->elem = e;                    // Step 2: Store data
+  v->next = head;                 // Step 3: New node points to old head
+  head = v;                       // Step 4: Update head
+}
+
+removing from the head:
+----------------------
+· save the current head
+· update the head to point to the next node
+· delete the old head
+
+void StringLinkedList::removeFront() {
+  StringNode* old = head;        // Step 1: Save old head
+  head = old->next;              // Step 2: Update head
+  delete old;                    // Step 3: Delete old head
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+inserting at the tail & inside a linked list:
+--------------------------------------------
+· allocate a new node
+· insert new element (Hyd)
+· have new node point to null (v->next = NULL)
+· have old last node point to new node (last_node->next = v)
+
+void insertAfter(Node* prev_node, int new_data)
+{
+  Node* new_node = new Node();
+  new_node->data = new_data;
+  new_node->next = prev_node->next;
+  prev_node->next = new_node;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+deleting the last node:
+----------------------
+1. If (headNode == null)
+   then what should you do?
+
+2. If (headNode.next == null)
+   then what should you do?
+
+3. While secondLast.next.next != null
+   // traverse till secondLast
+   secondLast = secondLast.nextNode
+
+4. Delete last node and set the pointer
+   of secondLast to null.
+
+simple operations on linked lists: <SEE CODE>
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+stacks and queues;
+-----------------
+stack:
+We can implement stack as a linked list. How will you implement?
+
+queue:
+We can implement a queue as a linked list. Front element is stored as first element of the linked list, and rear element is stored as the last element
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+swapping 2 nodes in a linked list:
+---------------------------------
+10 --> 20 --> 30 --> 40 --> 50
+
+10 --> 20     30 --> 40 --> 50
+        ^      |
+        |------|
+
+ |--------------------|
+ |                    V
+10     20     30 --> 40 --> 50
+        ^      |
+        |------|
+
+        |--------------------|
+        |                    V
+10     20     30 --> 40     50
+ |      ^      |      ^
+ |      |------|      |
+ |                    |
+ |--------------------|
+
+        |--------------------|
+        |                    V
+10     20     30 <-- 40     50
+ |      ^      |      ^
+ |      |------|      |
+ |                    |
+ |--------------------|
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
