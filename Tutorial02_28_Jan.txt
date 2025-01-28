@@ -1,0 +1,84 @@
+Problem 1:
+Suppose that each row of an nxn array A consists of 1's and 0's such that, in any row i of A, all the 1's come before any 0's in that row. Suppose further that the number of 1's in row i is at least the number in row i+1, for i=0,1,2,…,n−2. Assuming A is already in memory, write an algorithm or program that uses optimal number of comparisons (i.e., checking whether an element in the array is 1 or 0) to count the number of 1's in the array A.
+
+Solution:
+bottom up, look at the above row, check if it has a 1 or 0
+1 1 1 0
+    ^
+1 1 0 0
+  ^
+1 0 0 0
+^
+1 0 0 0
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 2:
+Suppose that each row of an nxn array A consists of 1's and 0's such that, in any row of A, all the 1's come before any 0's in that row. Assuming A is already in memory, write an algorithm or program that uses optimal number of comparisons (i.e., checking whether an element in the array is 1 or 0) for finding the row of A that contains the most 1's.
+
+Solution:
+Top down or bottom up doesn't matter
+traverse a row until you get to the last 1 and then the first 0
+check the number immediately below it
+if it is a 1, it is the new largest row
+move one to the right, go down, start checking again
+1 1 0 0 0
+    V
+1 1 1 0 0
+      V
+1 0 0 0 0
+      V
+1 1 1 1 0
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 3:
+Let M be an nxm integer matrix in which the entries of each row are sorted in increasing order (from left to right) and the entries in each column are in increasing order (from top to bottom). Give an efficient algorithm to find the position of an integer x in M, or to determine that x is not there. How many comparisons of x with matrix entries does your algorithm use in the worst case?
+
+Solution:
+binary sort in each row
+03 05 09 12
+          V
+04 06 13 17
+          V
+07 08 15 19
+
+let x = 19
+check if 19 > 12? yes
+go down
+19 > 17? yes
+go down
+19 > 19? no
+19 = 19? yes
+found
+
+if x = 1
+check if 1 > 12? no
+go left
+1 > 9? no
+go left
+1 > 5? no
+go left
+1 > 3? no
+nothing else on the left
+so, number dne in the matrix
+
+max time complexity: n+m
+
+n = 2^i
+i = log(2)n
+
+time complexity: logn in the worst case in a matrix of nxm
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 4:
+describe a method for finding both the minimum and maximum of n numbers using fewer than 3n/2 comparisons
+
+Solution:
+
+
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+time complexity: logn in the worst case in a matrix of nxm
