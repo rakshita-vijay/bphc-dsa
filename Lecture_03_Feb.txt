@@ -1,0 +1,42 @@
+Growth rate of algorithm:
+------------------------
+Problem - very steep curve if it is not log graph 
+Pavlov law: y = k.n^p
+
+Growth rate: rate at which a graph grows in order to accommodate a very large range 
+
+Best complexity: linear or constant 
+Example of cubic complexity: matrix multiplication 
+
+BREAK ~~~~~~
+
+Best case: 1.5L in 2 months 
+
+Worst case: 2L in 2 months 
+
+Average case: 2.5L in 2 months 
+
+Example: 
+Linear searching of a person is a queue:-
+Best case: person in front of you
+1 comparison
+O(1)
+
+Worst case: person farthest away from you
+n comparisons 
+O(n)
+
+Average case: middle guy
+Why hardest/most irritating case:
+You need to have distribution of every month 
+Why important: need to check how much computing power is required 
+
+BREAK ~~~~~~
+
+Gprof: Prof stands for profiler 
+G stands for glu 
+
+
+
+
+
