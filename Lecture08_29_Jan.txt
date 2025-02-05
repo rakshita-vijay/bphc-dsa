@@ -1,0 +1,17 @@
+not all linearly recursive functions are tail recursion
+tail recursion: final action of a function is a recursive call
+
+algorithm, program, pseudocode, flowchart
+
+algorithm complexity:
+binary search, linear search
+
+ex:
+1) tower of hanoi: (2^n - 1)
+2) travelling salesman (greedy heuristics): n^2
+3) light switch: 1
+4) fiding a person in a queue: n (asking people one by one if they are Mr. X)
+
+
+to look for a word in an alphabetically sorted dictionary, how many algorithms are there? which one would you prefer?
+linear search, binary search, fibonacci, hashmap, interpolation,

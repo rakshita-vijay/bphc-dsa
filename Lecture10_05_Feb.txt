@@ -1,0 +1,67 @@
+asymtotic analysis of algorithms:
+--------------------------------
+time complexities: different based on hardware
+
+"Big O" (O) notation describes an upper bound on how fast an algorithm grows with respect to its input size, while "Little O" (o) notation signifies that a function grows strictly slower than another function as the input size approaches infinity; essentially, "Big O" says "at most as fast as" while "Little O" says "strictly faster than" when comparing growth rates
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+theoretical analysis:- ram model:
+--------------------------------
+RAM: Random Access Machine
+     potentially unbound bank of memory cells
+     sequential model of computing, not parallel computing
+Counter: Points to curently executing instruction
+
+input tape: only readable
+
+output tape: writable
+
+      Input tape
+          ^
+          |
+          |
+PC --> Program
+          |
+          |
+          V
+     Output tape
+
+CU: figures out which instruction is being executed
+
+CU, ALU, memory
+Reg
+
+PRAM: Parallel Random Access Machine
+
+primitive: ADD, SUB, MUL, DIV, CMP
+           int a = 5;
+computer-based:
+int max(int a, int b) {
+  int max;
+  if (a > b) // basic operation: comparing - A
+    max = a; // basic operation: assignment - B
+  else
+    max = b; // basic operation: assignment - C
+  return max; // basic operation - D
+}
+
+best case: (a > b)
+           3 basic operations are carried out - A, B, D
+
+worst case: !(a > b)
+            still, 3 basic operations are carried out - A, C, D
+
+average case: check i/p distribution
+
+constant time complexity - O(1) - does not depend on the values of a and b
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+asymtotic notation for complexity analysis:
+------------------------------------------
+for y = 1/x
+curve from +infinity on y axis in first quadrant to +infinity on x axis in first quadrant
+curve from -infinity on x axis in third quadrant to -infinity on y axis in third quadrant
+
+tight and non-tight upper bound - To see later

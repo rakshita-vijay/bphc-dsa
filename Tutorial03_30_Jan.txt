@@ -1,0 +1,45 @@
+Problem 1:
+what ds do you use to implement a polynomial of any degree?
+design an algorithm to implement:
+a) adding 2 polynomials
+b) subtracting 1 polynomial from another
+c) multiplying 2 polynomials
+d) derivative of a polynomial
+e) integration of a polynomial
+
+Solution:
+ax^k + bx^(k-1) + cx^(k-2) + ...
+-------------------------------------     -------------------------------------
+| coefficient | expansion | pointer | --> | coefficient | expansion | pointer | --> ...
+-------------------------------------     -------------------------------------
+
+          ------------     ------------     -------------
+head1 --> | 3 | 2 | -|---> | 2 | 1 | -|---> | 1 | 0 | \ |
+          ------------     ------------     -------------
+= 3x^2 + 2x + 1
+
+          ------------     -------------
+head2 --> | 5 | 1 | -|---> | 7 | 0 | \ |
+          ------------     -------------
+= 5x + 7
+
+if (ptr1-->exp == ptr2-->exp) {
+  newnode.coeff = ptr1.coeff + ptr2.coeff;
+  newnode.exp = ptr1.exp;
+}
+ptr1 = ptr1-->next;
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 2:
+given a single circular linked list containing a set of data, obtain the following:
+a) reverse the direction of links
+
+prev <-- head
+cp <-- head.next
+while (cp != head)
+temp <-- cp.next
+cp.next <-- prev
+prev <-- cp
+cp <-- temp
+head.next <-- prev

@@ -75,9 +75,21 @@ time complexity: logn in the worst case in a matrix of nxm
 Problem 4:
 describe a method for finding both the minimum and maximum of n numbers using fewer than 3n/2 comparisons
 
-Solution:
+Solution: compare 2-2 numbers each and find maximum
+find maximum of those
+ex: 09  05  15  02  03  07
+      09      15      07
+          15
+                15
 
+            (n/2 pairs)
 
+    09  05  15  02  03  07
+      05      02      03
+          02
+                02
+
+n/2 + n/2 - 1 + n/2 - 1 = 3n/2 - 2
 
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 
