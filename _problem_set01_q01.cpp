@@ -2,12 +2,12 @@
 using namespace std;
 
 class Gate {
-protected:
+  protected:
     // ???
     bool input1;
     bool input2;
 
-public:
+  public:
     Gate(bool in1, bool in2) : input1(in1), input2(in2) {} // constructor
     // assigning in1 to input1 and in2 to input2
 
@@ -19,42 +19,61 @@ public:
 };
 
 class AndGate : public Gate {
-public:
+  public:
     AndGate(bool in1, bool in2) : Gate(in1, in2) {}
 
-    bool getOutput() const override {
-        return input1 && input2;
+    bool getOutput() const {
+      return input1 && input2;
     }
 };
 
 class OrGate : public Gate {
-public:
+  public:
     // ???
     OrGate(bool in1, bool in2) : Gate(in1, in2) {}
 
-    bool getOutput() const override {
-        return input1 || input2;
+    bool getOutput() const {
+      return input1 || input2;
     }
 };
 
 int main() {
-    for (bool a : {false, true}) {
-        for (bool b : {false, true}) {
-            for (bool c : {false, true}) {
-                cout << "A: " << a << "; B: " << b << "; C: " << c << '\n';
+  bool a = false;
 
-                OrGate o1(b, c);
-                AndGate a1(a, o1.getOutput());
-                cout << "A ^ (B U C): " << a1.getOutput() << '\n';
+  for (int i = 0; i <= 1; i++) {
+    bool b = false;
 
-                // ???
-                AndGate a2(a, b);
-                AndGate a3(a, c);
-                OrGate o2(a2.getOutput(), a3.getOutput());
-                cout << "(A ^ B) U (A ^ C): " << o2.getOutput() << "\n\n";
-            }
-        }
+    for (int j = 0; j <= 1; j++) {
+
+      bool c = false;
+      for (int k = 0; k <= 1; k++) {
+        cout << "A: " << a << "; B: " << b << "; C: " << c << '\n';
+
+        OrGate o1(b, c);
+        AndGate a1(a, o1.getOutput());
+        cout << "A ^ (B U C): " << a1.getOutput() << '\n';
+
+        // ???
+        AndGate a2(a, b);
+        AndGate a3(a, c);
+        OrGate o2(a2.getOutput(), a3.getOutput());
+        cout << "(A ^ B) U (A ^ C): " << o2.getOutput() << "\n\n";
+
+        AndGate a4(b, c);
+        OrGate o3(a, a4.getOutput());
+        cout << "A U (B ^ C): " << o3.getOutput() << "\n";
+
+        OrGate o4(a, b);
+        OrGate o5(a, c);
+        AndGate a5(o4.getOutput(), o5.getOutput());
+        cout << "(A U B) ^ (A U C): " << a5.getOutput() << "\n\n";
+
+        c = true;
+      }
+      b = true;
     }
+    a = true;
+  }
 
-    return 0;
+  return 0;
 }

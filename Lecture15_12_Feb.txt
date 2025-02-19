@@ -1,0 +1,48 @@
+rat in a maze - backtrack
+
+stack interface:
+what is an adt?
+operations to store
+ex.: graph adt,
+     stock trading - binary search trwees, heaps, hash maps
+
+stack adt:
+data?
+operations? - push, pop
+auxiliary operations? - checking if stack is empty, size, top (doesn't pop, but tells you what the topmost element is)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+array-based stack implementation:
+--------------------------------
+algorithm push(e) {
+  if (t == s.size() - 1) then
+    throw StackFull;
+  else
+    t = t + 1;
+    s[t] = e;
+}
+complexity: O(1)
+
+algorithm pop() {
+  if empty() then
+    throw StackEmpty;
+  else
+    t = t - 1
+    return s[t + 1];
+}
+complexity: O(1)
+
+algorithm size() {
+  return t + 1;
+}
+complexity: O(1)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+stack usage examples:
+--------------------
+a) matching parenthesis
+   (a + b - (c * d) + e)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

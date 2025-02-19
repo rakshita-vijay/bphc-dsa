@@ -1,0 +1,98 @@
+quiz 5:
+suppose f(n) = 2^n
+g(n) = n^2
+h(n) = 10
+
+prove or disprove:
+a.g(n) ∈ O(f(n))
+b.h(n) ∈ O(g(n))
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 5:
+use the definition of big-oh to prove that 0.001n^3 - 1000n^2 logn - 100n + 5 is O(n^3)
+O() - order of
+
+0.001n^3 - 1000n^2 logn - 100n + 5 <= 0.001n^3 + 5
+                                   <= 0.001n^3 + 5 + 3
+                                   <= 0.001n^3 + 8
+                                   <= 0.001n^3 + n^3
+                                   <= 1.001n^3      (where n >= 2)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 7:
+is 2^(n+1) = O(2^n)?
+is 2^2n = O(2^n)?
+
+2^(n+1) = 2 * 2^n
+thus, 2^(n+1) = O(2^n)
+where c = 2
+n_0 = 1
+
+for any value of n, 2^(2n) = (2^n)^2
+O(2^n) is correct if 2^n > 2^(2n)
+but not possible for (+ve) integers
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 8:
+raank the following functions by asymptotic growth rate in non-decreasing order:
+2^64 - 1
+n^3
+0.0001n^2
+10000n
+log(n^2)
+2^logn
+nlogn
+n * 2^n
+2^1000
+n
+n^2 * log n
+2^n
+logn
+n^100
+4^n
+log(n^3)
+n^n
+
+2^64 - 1, 2^1000 - O(1)
+logn, log(n^2), log(n^3) - O(logn)
+2^logn, n, 10000n - O(n)
+nlogn
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 1:
+prove that n! is O(n^n)
+
+1 * 2 * 3 * 4 * ... * n
+n * n * n * n * ... * n = n^n (max)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 3:
+prove that 3n+4 is o(n^2)
+
+f(n) = O(g(n)) ∃c such that f(n) <= c * g(n) ∀ n_0 >= n
+
+f(n) = o(g(n)) ∀c such that f(n) < c * g(n) ∀ n_0 >= n
+iff:
+lim            (f(n) / g(n)) = 0
+n --> infinity
+
+
+f(n) = O(g(n))
+and
+f(n) =/= big Ω(g(n))
+
+since
+lim            (3n+4 / n^2) = 0 = 3 lim (1/n) + 4 lim (1/n^2) = 0
+n --> infinity                      inf           inf
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 4:
+prove that n^2 is o(n^3)
