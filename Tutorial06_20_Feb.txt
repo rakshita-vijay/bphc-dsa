@@ -1,0 +1,86 @@
+Problem 1:
+draw venn diagrams of o(g), O(g), litte omega - ω(g), big omega - Ω(g), theta - Θ(g)
+to find out the relation between them
+also check whether o(g) ⊂ O(g) - Θ(g)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 2:
+devise an algo for the sum of all inegeres in a list
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 3:
+find complexity of the following algo:
+
+Algorithm Awesome(A: list [1,2,..n])
+var int i, j, k, sum;
+for i from 1 to 100
+    for j from 1 to 1000
+        for k from 1 to 50
+            sum = sum + i + j + k;
+
+because 100, 1000, 50 - all constants
+complexity: O(1)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 4:
+find computational complexity of the following algo:
+
+for( int i = n;  i > 0;  i /= 2 ) { // log2(n)
+    for( int j = 1;  j < n;  j *= 2 ) { // log2(n)
+        for( int k = 0;  k < n;  k += 2 ) { // n/2
+            ... // constant number of operations
+        }
+    }
+}
+
+O(n * (logn)^2)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 5:
+find computational complexity of the following algo assuming n = 2^m:
+
+for( int i = n; i > 0; i-- ) { // O(n) -- L1
+    for( int j = 1; j < n; j *= 2 ) { // 1 + 2 + 4 + 8 + ... + (2^m - 1) :- gp - sum of r = 2, a_0 = 1 -- L2
+        for( int k = 0; k < j; k++ ) { -- L3
+            for(int m = 0; m < 10000; m++) -- L4
+                sum = sum + m;
+        }
+    }
+}
+
+L2 AND L3: 1 + 2 + 4 + 8 + ... + 2^(m - 1) = 2^m - 1 = n-1 = O(n-1) = O(n)
+
+innermost loop : O(1) (L4)
+
+ans: O(n^2)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 6:
+find computational complexity of the following algo:
+input: two n*n matrices A and B
+output: the product matrix C = A X B
+
+O(n^3)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 7:
+what is the complexity of searching for an element using linear search and binary search?
+linear search:
+best case: O(1) - first person in front of you
+worst case: O(n) - last person or person not there
+average case:
+
+binary search:
+best case:
+worst case:
+average case:
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Problem 7:
