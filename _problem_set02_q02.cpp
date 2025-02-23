@@ -10,12 +10,14 @@ class Student {
     int sub2;
     int sub3;
 
+    Student(string na_me, int sub_1, int sub_2, int sub_3) : name(na_me), sub1(sub_1), sub2(sub_2), sub3(sub_3) {};
+
     int totalScore() {
       return (sub1 + sub2 + sub3);
     }
 
     void display() {
-      cout << "Name: " << name << "\nMarks: \n\tSubject 1: " << sub1 << "\n\tSubject 2: " << sub2 << "\n\tSubject 3: " << sub3 << endl;
+      cout << "Name: " << name << "\nMarks: \n\tSubject 1: " << sub1 << "\n\tSubject 2: " << sub2 << "\n\tSubject 3: " << sub3 << "\n\tTotal Marks: " << totalScore() << endl;
     }
 };
 
@@ -63,7 +65,7 @@ class LinkedList {
       }
     }
 
-    int calculateAverage () {
+    double calculateAverage () {
       /* ??? */
       if (head == NULL) {
         return 0;
@@ -77,7 +79,11 @@ class LinkedList {
         count++;
       }
 
-      return (count == 0) ? 0 : (sum / count);
+      double avg = (count == 0) ? 0 : (sum / count);
+
+      cout << "Average: " << avg << endl;
+
+      return avg;
     }
 
     void split() {
@@ -88,17 +94,21 @@ class LinkedList {
 
       double average = calculateAverage();
 
-      /* ??? */ ???????????????????????????????????????????????????????????????????????????????????????????????
+      /* ??? */
+
+      LinkedList* aboveAverageList = new LinkedList();
+      LinkedList* belowAverageList = new LinkedList();
 
       for (Node *temp = head; temp != NULL; temp = temp->next) {
-        if (temp->data.totalScore() > average) {
-          aboveAverageHead->data = temp->data;
-          aboveAverageHead = aboveAverageHead->next;
+        if ((temp->data.totalScore()) > average) {
+          aboveAverageList->addStudent(temp->data);
         } else {
-          belowAverageHead->data = temp->data;
-          belowAverageHead = belowAverageHead->next;
+          belowAverageList->addStudent(temp->data);
         }
       }
+
+      aboveAverageHead = aboveAverageList->head;
+      belowAverageHead = belowAverageList->head;
 
       isSplit = true;
     }
@@ -106,16 +116,21 @@ class LinkedList {
     void display() const {
       if (!isSplit) {
         /* ??? */
+        Node *temp = head;
+        while (temp) {
+          temp->data.display();
+          temp = temp->next;
+        }
       } else {
         cout << "\nBelow average:" << endl;
-        Node* temp = aboveAverageHead;
+        Node* temp = belowAverageHead;
         while (temp) {
           temp->data.display();
           temp = temp->next;
         }
 
         cout << "\nAbove average:" << endl;
-        temp = belowAverageHead;
+        temp = aboveAverageHead;
         while (temp) {
           temp->data.display();
           temp = temp->next;

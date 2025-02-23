@@ -33,18 +33,20 @@ class MagicArray {
         /* ??? */
         newNode->prev = tail;
         newNode->next = head;
-        tail->next = newNode;
         head->prev = newNode;
+        tail->next = newNode;
+        tail = tail->next;
       } else {
         /* ??? */
-        newNode->next = tail;
         newNode->prev = head;
-        tail->prev = newNode;
+        newNode->next = tail;
         head->next = newNode;
+        tail->prev = newNode;
+        tail = tail->prev;
       }
     }
 
-    int popElement() {
+    void popElement() {
       if (size == 0) {
         throw runtime_error("Cannot pop from an empty array");
       }
@@ -52,15 +54,33 @@ class MagicArray {
       size--;
       int x;
 
-      if (!isReverse) {
+      reverse();
+      if (!isReverse) { //(isReverse == 0)
         /* ??? */
         Node *curr = tail;
+        x = tail->data;
         tail = tail->prev;
-        tail->next = NULL;
+
+        tail->next = head;
+        head->prev = tail;
+
+        curr->prev = NULL;
+        curr->next = NULL;
+        delete curr;
       } else {
         /* ??? */
+        Node *curr = head; // haven't switched head and tail pointers on purpose
+        x = head->data;
+        head = head->next;
+
+        head->prev = tail;
+        tail->next = head;
+
+        curr->prev = NULL;
+        curr->next = NULL;
+        delete curr;
       }
-      return x;
+      // return x;
     }
 
     void rotate(int k) {
@@ -87,6 +107,21 @@ class MagicArray {
       }
 
       /* ??? */
+      Node *temp = head;
+      if (!isReverse) {
+        for(int i = 0; i < size; i++) {
+          cout << temp->data << " ";
+          temp = temp->next;
+        }
+        cout << endl;
+      } else {
+        temp = tail;
+        for(int i = 0; i < size; i++) {
+          cout << temp->data << " ";
+          temp = temp->prev;
+        }
+        cout << endl;
+      }
     }
 
     void reverse() {
@@ -99,17 +134,41 @@ int main() {
   ma.addElement(1);
   ma.addElement(2);
   ma.addElement(3);
-  ma.display();
-
-  ma.reverse();
-  ma.popElement();
   ma.addElement(4);
   ma.addElement(5);
+
+  cout << "1) Displaying the magic array before reversing: " << endl;
   ma.display();
+  cout << "~~~" << endl << endl;
+
+  ma.reverse();
+  cout << "2) Displaying the magic array after reversing: " << endl;
+  ma.display();
+  cout << "~~~" << endl << endl;
+
+  ma.popElement();
+  cout << "3) Displaying the magic array after popping 1 element: " << endl;
+  ma.display();
+  cout << "~~~" << endl << endl;
+
+  ma.addElement(12);
+  ma.addElement(13);
+
+  cout << "4) Displaying the magic array after adding 2 more elements: " << endl;
+  ma.display();
+  cout << "~~~" << endl << endl;
+  // ma.display();
 
   ma.rotate(2);
-  ma.reverse();
+  cout << "5) Displaying the magic array after rotating: " << endl;
   ma.display();
+  cout << "~~~" << endl << endl;
+
+  ma.reverse();
+  cout << "6) Displaying the magic array after reversing: " << endl;
+  ma.display();
+  cout << "~~~" << endl;
+  // ma.display();
 
   return 0;
 }
