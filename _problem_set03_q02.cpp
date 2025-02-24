@@ -28,7 +28,7 @@ class Sudoku {
     bool isSafe(int row, int col, int num) const {
       /* ??? */
 
-      cout << "in issafe" << endl;
+      // cout << "in issafe" << endl;
       // checking in row
       for (int x = 0; x < 9; x++) {
         if (grid[row][x] == num) {
@@ -56,12 +56,12 @@ class Sudoku {
       else if (col <= 8) { startC = 6; }
 
       int startRcopy = startR + 2;
-      cout << "startR: " << startR << endl;
-      cout << "startRcopy: " << startRcopy << endl;
+      // cout << "startR: " << startR << endl;
+      // cout << "startRcopy: " << startRcopy << endl;
 
       int startCcopy = startC + 2;
-      cout << "startC: " << startC << endl;
-      cout << "startCcopy: " << startCcopy << endl;
+      // cout << "startC: " << startC << endl;
+      // cout << "startCcopy: " << startCcopy << endl;
 
       for (; startR <= startRcopy; startR++) {
         for (; startC <= startCcopy; startC++) {
@@ -77,41 +77,35 @@ class Sudoku {
 
 bool solveSudoku(Sudoku &sudoku, int row, int col) {
   /* ??? */
-  for (int num = 1; num <= 9; num++) {
-    cout << "in first for loop" << endl;
-    if ((sudoku.grid[row][col] == 0) && (sudoku.isSafe(row, col, num) == true)) { // first check if it is safe
-      sudoku.grid[row][col] = num; // then assign it
-      cout << "in line 77" << endl;
-    } else if (sudoku.grid[row][col] != 0) {
-      if (row == 8 && col != 8) {
-        solveSudoku(sudoku, row, col + 1);
-      } else if (row != 8 && col == 8) {
-        solveSudoku(sudoku, row + 1, col);
-      } else if (row == 8 && col == 8) {
-        return false;
-      }
-    }
+  if (row == 8 && col == 8) {
+    return true;
+  }
 
-    if (num == 9 && sudoku.grid[row][col] == 0) {
-      if (row == 8 && col != 8) {
-        solveSudoku(sudoku, row, col + 1);
-      } else if (row != 8 && col == 8) {
-        solveSudoku(sudoku, row + 1, col);
-      } else if (row == 8 && col == 8) {
-        for (int outerCount = 0; outerCount < 9; outerCount++) {
-          for (int innerCount = 0; innerCount < 9; innerCount++) {
-            if (sudoku.grid[outerCount][innerCount] == 0) {
-              solveSudoku(sudoku, outerCount, innerCount);
-            } else {
-              continue;
-            }
-          }
-        }
-      }
+  if (sudoku.grid[row][col] != 0) {
+    if (row == 8 && col != 8) {
+      solveSudoku(sudoku, row, col + 1);
+    } else if (row != 8 && col == 8) {
+      solveSudoku(sudoku, row + 1, 0);
     }
   }
 
-  return true;
+  for (int num = 1; num <= 9; num++) {
+    // cout << "in first for loop" << endl;
+    if (sudoku.isSafe(row, col, num)) { // first check if it is safe
+      sudoku.grid[row][col] = num; // then assign it
+      // cout << "in line 77" << endl;
+
+      int nextR = (col == 8) ? (row + 1) : row;
+      int nextC = (col == 8) ? 0 : (col + 1);
+      if (solveSudoku(sudoku, nextR, nextC)) {
+        return true;
+      }
+
+      sudoku.grid[row][col] = 0;
+    }
+  }
+
+  return false;
 }
 
 int main() {

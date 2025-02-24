@@ -1,0 +1,101 @@
+STL LISTS IN C++
+
+#include <list>
+using std::list;
+list<int> myList;
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+sequence ADT:
+------------
+generalizes vector ADTs
+elements are accessed by index / position
+
+array based:
+-----------
+circular array storing positions
+a position object stores:
+1) element
+2) index
+indices f and l keeo track of first and last positions
+
+bubble sort:
+-----------
+O(n^2)
+
+5 7 2 6 9 3
+5 2 7 6 9 3
+5 2 6 7 9 3
+5 2 6 7 3 9
+
+2 5 6 7 3 9
+2 5 6 3 7 9
+
+2 5 3 6 7 9
+2 3 5 6 7 9
+
+pass swaps        sequence
+1st  7-2 7-6 3-9  5 2 6 7 3 9
+2nd  5-2 7-3      2 5 6 3 7 9
+3rd  6-3          2 5 3 6 7 9
+4th  5-3          2 3 5 6 7 9
+
+ith pass will be of order O(n-i+1)
+
+assuming that the sequence is implemented in such a way that access to elements and swaps take O(1) time each
+running time of ith pass = ?  O( (n) ∑ (i=1) (n-i+1)) = O(n + (n-1) + (n-2) + ... + 1)
+                                                      = O(n(n+1) / 2)
+                                                      = O(n^2)
+total run time = ?
+
+in an array based implementation atindex takes O(1)
+thus, complexity is O(n^2)
+
+in a node-based implementation, atindex takes O(n)
+thus, complexity is O(n^3)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+trees - non-linear data structures:
+----------------------------------
+a tree t is a set of nodes storing elements in a parent-child relationship with the following properties:
+1) if t is non-empty, it has a special node, called the root of t, that has no parent
+2) each node v of t different from the root has a unique parent node w, every node with parent w is a child of w
+
+applications:
+1) parse tree
+   ex: a = b + c
+         =
+       /   \
+      a     +
+          /   \
+         b     c
+
+2) heaps
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+tree terminologies and properties:
+---------------------------------
+                        a
+                      / | \
+                     /  c  \
+                    /  / \  \
+                   /  g   h  \
+                  /           \
+                 /             d
+                b
+              /   \
+             e     f
+                 / | \
+                /  |  \
+               i   j   k
+
+root: a
+internal node: c, b, f
+external node: d, g, h, e, i, j, k
+ancestors of a node:
+level / depth of a node:
+height of a node:
+height of a tree:
+descendants of a node:
