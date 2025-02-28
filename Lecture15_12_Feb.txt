@@ -1,3 +1,5 @@
+// CHECK NOTES
+
 rat in a maze - backtrack
 
 stack interface:
@@ -42,7 +44,23 @@ complexity: O(1)
 
 stack usage examples:
 --------------------
-a) matching parenthesis
-   (a + b - (c * d) + e)
+matching parenthesis
+(a + b - (c * d) + e)
+
+Let S be an empty stack
+for i = 0 to n - 1 do
+  if X[i] is an opening grouping symbol then
+    S.push(X[i])
+  else
+    if X[i] is a closing grouping symbol then
+      if S.empty() then
+        return false {nothing to match with}
+      if S.pop() does not match the type of X[i] then
+        return false {wrong type}
+if S.empty() then
+  return true {every symbol matched}
+else
+  return false {some symbols were never matched}
+
 
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
