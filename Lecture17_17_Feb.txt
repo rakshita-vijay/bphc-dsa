@@ -65,6 +65,8 @@ class Queue {
     bool isEmpty();
 };
 
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
 CIRCULAR QUEUE
 A circular queue overcomes the limitation of a simple queue by reusing empty spaces.
 
@@ -91,6 +93,60 @@ class CircularQueue {
     bool isFull();
 };
 
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+USING CIRCULAR ARRAY
+Algorithm size()
+  return n
+
+Algorithm empty()
+  return (n == 0)
+
+Algorithm dequeue()
+  if empty() then
+    throw QueueEmpty
+  else {
+    f ← (f + 1) mod N
+    n = n - 1
+  }
+
+Algorithm enqueue(P)
+  if (size() == N) then
+    throw QueueFull
+  else {
+    Q[r] ← P
+    r ← (r + 1) mod N
+    n = n + 1
+  }
+
+C++ Code for Circular Array Queue
+template <typename E>
+class Queue {
+public:
+  int size() const;
+  bool empty() const;
+  const E& front() const throw(QueueEmpty);
+  void enqueue(const E& e);
+  void dequeue() throw(QueueEmpty);
+};
+
+USING CIRCULAR LINKED LIST
+typedef string Elem;
+class LinkedQueue {
+  public:
+    LinkedQueue();
+    int size() const;
+    bool empty() const;
+    const Elem& front() const throw(QueueEmpty);
+    void enqueue(const Elem& e);
+    void dequeue() throw(QueueEmpty);
+  private:
+    CircleList C;
+    int n;
+};
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
 PRIORITY QUEUE
 A priority queue assigns priorities to elements.
 
@@ -110,6 +166,8 @@ class PriorityQueue {
     void insert(int x, int p);
     int deleteMin();
 };
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 
 DOUBLE-ENDED QUEUE (DEQUE)
 A deque supports insertion and deletion from both ends.
@@ -132,3 +190,5 @@ class Deque {
     void deleteFront();
     void deleteRear();
 };
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
