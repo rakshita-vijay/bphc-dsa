@@ -6,6 +6,7 @@ arraymax (int a[], int b[]) {
   }
   return max;
 }
+// number of operations
 // 2 in line 2
 // 1 + n-1 + 2(n-1) in line 3
 // 2(n-1) in line 4

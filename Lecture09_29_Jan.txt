@@ -7,11 +7,11 @@ algorithm complexity:
 binary search, linear search
 
 ex:
-1) tower of hanoi: (2^n - 1)
-2) travelling salesman (greedy heuristics): n^2
-3) light switch: 1
-4) fiding a person in a queue: n (asking people one by one if they are Mr. X)
-
+1) tower of hanoi: O(2^n - 1) = O(2^n)
+2) travelling salesman (greedy heuristics): O(n^2)
+3) light switch: O(1)
+4) finding a person in a queue: O(n) (asking people one by one if they are Mr. X)
+5) finding a topic in a book number like 1, 1.1, 1.1.1, etc: O(logn)
 
 to look for a word in an alphabetically sorted dictionary, how many algorithms are there? which one would you prefer?
-linear search, binary search, fibonacci, hashmap, interpolation,
+linear search, binary search, fibonacci, hashmap, interpolation

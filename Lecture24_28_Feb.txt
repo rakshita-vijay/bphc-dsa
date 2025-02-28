@@ -1,0 +1,89 @@
+applications of trees:
+spell check
+
+syntax trees: a=b+60
+              =
+            /   \
+           a     +
+               /   \
+              b     60
+
+            chairman
+      ceo     cto     cfo
+       |
+sup1 sup2 sup3
+      |
+     mg1
+     mg2
+     mg3
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+ordered trees:
+-------------
+                      Book
+preface      part a         part b      references
+          ch1 ... ch5    ch6 ... ch9
+          / \     / \    / \     / \
+          ...     ...    ...     ...
+
+
+binary search tree: on lhs, all values are less than root; on rhs, all values are more than the root
+          10
+         /  \
+        /    \
+       5      15
+     /   \   /  \
+    3    7  12  18
+
+  A         a
+b   c     c   b
+1 - ordered
+2 - not ordered
+
+node structure:
+--------------
+parent container
+  ^
+  |
+---------------
+|   |         |
+|---| element |
+|   |         |
+---------------
+  |
+  v
+children container
+
+ex:     a
+      / | \
+     b  c  d
+
+                  ---------------
+                  |   |         |
+                  |---|    a    |
+                  | . |         |
+                  ---------------
+       /                 |                 \
+---------------   ---------------   ---------------
+| . |         |   | . |         |   | . |         |
+|---|    b    |   |---|    c    |   |---|    d    |
+|   |         |   |   |         |   |   |         |
+---------------   ---------------   ---------------
+
+top . to bottom . is the pointer
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+depth and height of a tree:
+--------------------------
+algorithm depth(T, p):
+if p.isRoot() then
+  return 0;
+else
+  return 1 + depth(T, p.parent());
+
+running time of the algorithm depth(T, p) is O(d_p) where d_p denotes the depth of the node p in the tree T
+worst case complexity: O(n) where there are n nodes in the tree
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

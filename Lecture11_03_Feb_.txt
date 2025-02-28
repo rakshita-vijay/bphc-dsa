@@ -1,0 +1,69 @@
+Growth rate of algorithm:
+------------------------
+Problem - very steep curve if it is not log graph
+Pavlov law: y = k.n^p
+
+Growth rate: rate at which a graph grows in order to accommodate a very large range
+
+Best complexity: linear or constant
+Example of cubic complexity: matrix multiplication
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Best case: 1.5L in 2 months
+
+Worst case: 2L in 2 months
+
+Average case: 2.5L in 2 months
+
+Example:
+Linear searching of a person is a queue:-
+Best case: person in front of you
+1 comparison
+O(1)
+
+Worst case: person farthest away from you
+n comparisons
+O(n)
+
+Average case: middle guy
+Why hardest/most irritating case:
+You need to have distribution of every month
+Why important: need to check how much computing power is required
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+for loops where * or / is used: O(logn)
+fibonacci: 2^n
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Gprof: Prof stands for profiler
+G stands for GNU profiler
+you can use it to determine which parts of a program are taking most of the execution time
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+void bubbleSort(int arr[], int n) {
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+}
+
+%       cumulative   self              self   total
+time    seconds      seconds   calls   ms     ms      name
+95.00   1.90         1.90      1       1900   1900    bubbleSort
+5.00    2.00         0.10                             main
+
+Call Graph in gprof: represents function relationships
+                     helps identify performance bottlenecks.
+Caller → Callee
+main() → bubbleSort()
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

@@ -1,0 +1,40 @@
+                        complexity
+                            |
+         ----------------------------------------
+         |                                      |
+        big                                   small
+       / | \                                  /   \
+      O  Ω  Θ                                o     ω           small theta (θ) dne for our scope
+
+asymptomatically tight            asymptomatically not so tight
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+big O - upper bound
+small o - upper bound
+
+big omega (Ω) - lower bound
+small omega (ω) - lower bound
+
+big theta (Θ) - both
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+big O:
+∃c > 0, ∀n ≥ n_0 such that f(n) ≤ c*g(n)
+f(n) is O(g(n))
+
+small o:
+∃c > 0, ∀n ≥ n_0 such that f(n) ≤ c*g(n)
+f(n) is o(g(n))
+lim (f(n) / g(n)) = 0
+n→∞
+
+big omega (Ω):
+∃c > 0, ∀n ≥ n_0 such that c*g(n) ≤ f(n)
+f(n) is Ω(g(n))
+
+small omega (ω):
+
+∀
+∃

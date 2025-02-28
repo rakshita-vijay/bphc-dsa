@@ -1,0 +1,157 @@
+what is recursion?:
+------------------
+Recursion is a programming technique where a function calls itself to solve smaller subproblems of a larger problem.
+
+Examples:
+
+1) Factorial
+2) Fibonacci sequence
+3) Towers of Hanoi
+4) Merge Sort
+5) Quick Sort
+6) Binary Search
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+linear recursion:
+----------------
+function that makes at most one recursive call each time it is invoked (as opposed to one that would call itself multiple times during its execution)
+
+examples:
+--------
+int sumArrayRecursive(int arr[], int n) {
+  // base case
+  if (n == 0) {
+    return 0;
+  }
+
+  //Recursive step:
+  return arr[0] + sumArrayRecursive(arr[1:], n-1);
+}
+
+int main() {
+  int arr[] = {1, 2, 3, 4, 5};
+  int n = sizeof(arr) / sizeof(arr[0]);
+  int sum = sumArrayRecursive(arr, n);
+  cout << "Sum of array elements: " << sum << endl;
+  return 0;
+}
+
+~*~
+
+Euclidean Algorithm:
+int gcd(int a, int b) {
+  if (b == 0) {
+    return a;
+  } else {
+    return gcd(b, a % b);
+  }
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+tail recursion:
+--------------
+when a linearly recursive method makes its recursive call as its last step.
+Such methods can be easily converted to non-recursive methods (which saves on some resources)
+
+example:
+void reverseArray(int arr[], int start, int end) {
+  if (start >= end) { //reached base case
+    return;
+  }
+  swap(arr[start], arr[end]);
+  reverseArray(arr, start + 1, end - 1);
+}
+
+to
+
+void reverseArray(int arr[], int size) {
+  int start = 0;
+  int end = size - 1;
+  while (start < end) {
+    swap(arr[start], arr[end]);
+    start++;
+    end--;
+  }
+}
+
+what about factorial?
+--------------------
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n-1);
+  }
+}
+
+Is this function tail recursive?
+No, because the multiplication 'n * factorial(n - 1)' happens after the recursive call returns
+
+how about this?:
+---------------
+int tail_factorial(int n, int acc) {
+  if (n == 0) {
+    return acc;
+  } else {
+    return tail_factorial(n - 1, n * acc);
+  }
+}
+
+int factorial(int n) {
+  return tail_factorial(n, 1);
+}
+Is this function tail recursive?
+Yes, because the recursive call is the last operation, meaning no extra operations need to be performed after returning from the recursion
+
+iterative factorial:
+-------------------
+int factorial_iterative(int n) {
+  int prod = 1;
+  for (int i = 1; i <= n; ++i) {
+    prod *= i;
+  }
+  return prod;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+binary recursion:
+----------------
+a function is binary recursive if it makes two recursive calls per invocation
+
+example:
+-------
+int BinarySum(int A[], int i, int n) {
+  if (n == 1) {
+    return A[i];
+  }
+  return BinarySum(A, i, n / 2) + BinarySum(A, i + n / 2, n / 2);
+}
+
+Where is binary recursion commonly used?
+1) Merge Sort
+2) Binary Search
+3) Tree Traversals
+
+tower of hanoi problem:
+----------------------
+void towerOfHanoi(int n, char source, char dest, char aux) {
+  if (n == 1) {
+    cout << "Move disk 1 from " << source << " to " << dest << endl;
+    return;
+  }
+
+  towerOfHanoi(n - 1, source, aux, dest);
+  cout << "Move disk " << n << " from " << source << " to " << dest << endl;
+  towerOfHanoi(n - 1, aux, dest, source);
+}
+
+How does this function work?
+Move n-1 disks from source to auxiliary peg using destination as a helper.
+Move the nth disk from source to destination peg.
+Move n-1 disks from auxiliary peg to destination peg using source as a helper.
+
+What is the time complexity of Tower of Hanoi? 
+The time complexity is O(2ⁿ - 1) ≈ O(2ⁿ), which grows exponentially.

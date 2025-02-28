@@ -1,0 +1,71 @@
+big O, small o,
+big omega (Ω), small omega (ω),
+big theta (Θ), small theta (θ):
+------------------------------
+
+big o - tight upper bound
+because, it is as close as possible to the actual growth rate of the function
+Ex: Aryan is at most 20 years old,
+    Aryan is at most 25 years old,
+    Aryan is at most 30 years old.
+    Which one is tight and which one is a loose bound?
+    tight: 20
+    loose: 30
+
+linear search is O(n), also O(n^2), also O(n^3)
+which one is tight?: O(n)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Justify: the function, f(n) = 4n + 20 is O(n)
+4n + 20 ≤ 5n
+          O(n)
+c = 5
+n_0 = 20
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+justify: the function, f(n)=n? ≠ O(n)
+f(n) € O(g(n))
+n^2 ≤ c*n
+n ≤ C
+might not be true for all
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Justify: the function, f(n)=2^(n+2) is O(2^n)
+2^(n+2) = 2^n * 2^2 ≤ c * 2^n
+              2^2 ≤ c
+              4 ≤ c
+c = 4
+n_0 = 1
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Justify: the function, f(n)=2n + 100.log(2)n is O(n)
+2n + 100.log(2)n ≤ 2n + 100n
+                    O(n)
+c = 102
+n_0 = 1
+
+2n + 100.log(2)n ≤ 2n + n
+                    O(n)
+c = 3
+n_0 = 1000
+
+∃c > 0, ∀n ≥ n_0 such that f(n) ≤ c*g(n)
+f(n) is O(g(n))
+Justify: the function, f(n)=n^2 + n + 2 is O(n^2)
+n^2 + n + 2 ≤ n^2 + n + n
+            ≤ n^2 + n^2 = 2n^2
+                          O(n^2)
+c = 2
+n_0 = 2
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+Justify: the function f(n) = 3n^3 + 20n^2 + 5 is O(n^3)
+3n^3 + 20n^2 + 5 ≤ 3n^3 + n^3 = 4n^3
+                                O(n^3)
+c = 4
+n_0 = 21

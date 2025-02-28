@@ -94,8 +94,24 @@ tree terminologies and properties:
 root: a
 internal node: c, b, f
 external node: d, g, h, e, i, j, k
-ancestors of a node:
-level / depth of a node:
-height of a node:
-height of a tree:
+ancestors of a node: nodes above it in the same path
+level / depth of a node: root is zero, next is one - calculate from that
+height of a node: e=0, f=1, b=max(e,f)+1
+height of a tree: k to a - 3
 descendants of a node:
+
+what is a subtree?: f,i,j,k (other subtrees exist)
+
+number of nodes = 1 (n)
+number of edges = 1-1 = 0 (n-1)
+
+degree of node: number of direct children of the node
+                thus, a=3, d=0
+degreee of tree = degree of root
+
+forest?
+multiple parts of the tree: b-down (b and all nodes below it)
+                            c-down
+                            d-down (only d, in this case)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
