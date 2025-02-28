@@ -1,0 +1,134 @@
+queues:
+------
+approaches:
+1) Q[0]: front
+2) f, r, n
+3) circular array (with %)
+
+front: dequeue
+back: enqueue
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+QUEUE ABSTRACT DATA TYPE (ADT)
+A Queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+
+QUEUE OPERATIONS
+enqueue(x) → Insert element x at the rear.
+dequeue() → Remove and return the front element.
+front() → Return the front element without removing it.
+isEmpty() → Check if the queue is empty.
+
+TYPES OF QUEUES
+Simple Queue → Standard FIFO queue.
+Circular Queue → Last position connects to the first.
+Priority Queue → Elements are dequeued based on priority.
+Deque (Double-Ended Queue) → Insert and remove from both ends.
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+IMPLEMENTATION OF QUEUE
+1. Array-based Implementation
+
+class Queue {
+  private:
+    int front, rear, size;
+    int* arr;
+  public:
+    Queue(int s) {
+      size = s;
+      front = rear = -1;
+      arr = new int[s];
+    }
+    void enqueue(int x);
+    int dequeue();
+    int Front();
+    bool isEmpty();
+};
+
+2. Linked List-based Implementation
+
+class Node {
+  public:
+    int data;
+    Node* next;
+};
+
+class Queue {
+  private:
+    Node* front, *rear;
+  public:
+    Queue() { front = rear = NULL; }
+    void enqueue(int x);
+    int dequeue();
+    int Front();
+    bool isEmpty();
+};
+
+CIRCULAR QUEUE
+A circular queue overcomes the limitation of a simple queue by reusing empty spaces.
+
+Operations in Circular Queue
+Enqueue: Insert element at rear, wrapping around.
+Dequeue: Remove element from the front, wrapping around.
+isFull: Check if queue is full.
+isEmpty: Check if queue is empty.
+
+Implementation
+class CircularQueue {
+  private:
+    int front, rear, size;
+    int* arr;
+  public:
+    CircularQueue(int s) {
+      size = s;
+      front = rear = -1;
+      arr = new int[s];
+    }
+    void enqueue(int x);
+    int dequeue();
+    bool isEmpty();
+    bool isFull();
+};
+
+PRIORITY QUEUE
+A priority queue assigns priorities to elements.
+
+Elements with higher priority are dequeued first.
+Implemented using heaps or sorted lists.
+
+Operations
+Insert(x, p) → Insert element x with priority p.
+DeleteMin() → Remove element with highest priority.
+Peek() → Return element with highest priority.
+
+Heap-based Implementation
+class PriorityQueue {
+  private:
+    vector<pair<int, int>> heap;
+  public:
+    void insert(int x, int p);
+    int deleteMin();
+};
+
+DOUBLE-ENDED QUEUE (DEQUE)
+A deque supports insertion and deletion from both ends.
+
+Operations
+insertFront(x) → Insert at the front.
+insertRear(x) → Insert at the rear.
+deleteFront() → Remove from the front.
+deleteRear() → Remove from the rear.
+
+Implementation
+class Deque {
+  private:
+    int* arr;
+    int front, rear, size;
+  public:
+    Deque(int s);
+    void insertFront(int x);
+    void insertRear(int x);
+    void deleteFront();
+    void deleteRear();
+};

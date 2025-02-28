@@ -1,9 +1,0 @@
-queues:
-------
-approaches:
-1) Q[0]: front
-2) f, r, n
-3) circular array (with %)
-
-front: dequeue
-back: enqueue

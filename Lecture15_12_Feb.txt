@@ -62,5 +62,4 @@ if S.empty() then
 else
   return false {some symbols were never matched}
 
-
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

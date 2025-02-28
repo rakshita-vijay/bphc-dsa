@@ -1,0 +1,95 @@
+stockspan:
+---------
+X STOCK_SPAN(prices):
+n = length(prices)
+span = array of size n  // To store the stock spans
+stack = empty stack     // Stack to store indices
+
+for i from 0 to n-1:
+  while stack is not empty AND prices[stack.top()] <= prices[i]:
+    stack.pop()
+
+  if stack is empty:
+    span[i] = i + 1  // Span is from the beginning
+  else:
+    span[i] = i - stack.top() // Span is difference of indices
+
+  stack.push(i) // Push the current index
+
+return span
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+how to get html tags:
+--------------------
+vector<string> getHtmlTags() {
+  vector<string> tags;
+  while (cin) {
+    string line;
+    getline(cin, line);
+    int pos = 0;
+    int ts = line.find("<", pos);
+    while (ts != string::npos) {
+      int te = line.find(">", ts+1);
+      tags.push_back(line.substr(ts, te - ts + 1));
+      pos = te + 1;
+      ts = line.find("<", pos);
+    }
+  }
+  return tags;
+}
+
+bool isHtmlMatched(const vector<string>& tags) {
+  LinkedStack S;
+  typedef vector<string>::const_iterator Iter;
+
+  for (Iter p = tags.begin(); p != tags.end(); ++p) {
+    if (p->at(1) != '/')
+      S.push(*p);
+    else {
+      if (S.empty()) return false;
+      string open = S.top().substr(1);
+      string close = p->substr(2);
+      if (open.compare(close) != 0) return false;
+      else S.pop();
+    }
+  }
+  if (S.empty()) return true;
+  else return false;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+reversing a vector:
+------------------
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+// It is a container adaptor. Why?
+
+#include <vector>
+stack<int, vector<int>> myStack;
+stack<int, list<int>> myStack;
+stack<int, deque<int>> myStack; // default
+
+// Which one is default?
+
+vector<int> rever(const vector<int>& inputVector) {
+  stack<int> myStack;
+  vector<int> reversedVector;
+
+  for (int element : inputVector) {
+    myStack.push(element);
+  }
+
+  while (!myStack.empty()) {
+    reversedVector.push_back(myStack.top());
+    myStack.pop();
+  }
+
+  return reversedVector;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
