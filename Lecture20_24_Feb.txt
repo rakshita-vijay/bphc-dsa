@@ -92,7 +92,7 @@ tree terminologies and properties:
                i   j   k
 
 root: a
-internal node: c, b, f
+internal node: a, c, b, f
 external node: d, g, h, e, i, j, k
 ancestors of a node: nodes above it in the same path
 level / depth of a node: root is zero, next is one - calculate from that
@@ -103,7 +103,7 @@ descendants of a node:
 what is a subtree?: f,i,j,k (other subtrees exist)
 
 number of nodes = 1 (n)
-number of edges = 1-1 = 0 (n-1)
+number of edges = 1-1 = 0 (n-1 ~ max)
 
 degree of node: number of direct children of the node
                 thus, a=3, d=0

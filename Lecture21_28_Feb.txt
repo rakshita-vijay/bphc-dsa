@@ -34,7 +34,7 @@ binary search tree: on lhs, all values are less than root; on rhs, all values ar
         /    \
        5      15
      /   \   /  \
-    3    7  12  18
+    3     7 12  18
 
   A         a
 b   c     c   b
