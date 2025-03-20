@@ -83,7 +83,7 @@ if p.isRoot() then
 else
   return 1 + depth(T, p.parent());
 
-running time of the algorithm depth(T, p) is O(d_p) where d_p denotes the depth of the node p in the tree T
+running time of the algorithm depth(T, p): O(d_p) where d_p denotes the depth of the node p in the tree T
 worst case complexity: O(n) where there are n nodes in the tree
 
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*

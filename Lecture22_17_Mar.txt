@@ -1,0 +1,73 @@
+depth and height of node in tree:
+--------------------------------
+algorithm depth(T, p): {
+  if (p == root)
+    return 0;
+  else
+    return 1 + depth(T, p.parent());
+}
+
+running time of the algorithm depth(T, p): O(d_p) where d_p denotes the depth of the node p in the tree T
+worst case complexity: O(n) where there are n nodes in the tree
+
+algorithm height(T):
+  h = 0;
+  for each p ∈ T.positions() do
+    if p.isExternal() then
+      h = max(h, depth(T, p))
+  return h
+
+O(n + ∑ p∈E (1 + d_p))
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+algorithm height(T, p):
+  if p.isExternal() then
+    return 0;
+  else
+    h = 0;
+    for each q ∈ p.children() do
+      h = max(h, depth(T, q))
+    return 1+h;
+
+O(1 + c_p) : time spent at each node p
+
+O(∑ (1 + c_p)) --> O(n)
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+tree traversal (preorder, postorder):
+------------------------------------
+CHECK NOTES
+
+level order traversal:
+---------------------
+
+LevelOrderTraversal(root) {
+  if (root == NULL) then
+    return;
+  Q <-- Φ
+  Enqueue(root);
+  while(Q ≠ Φ) {
+    node = DequeUE FROM q;
+    Print Node.value; // Process from current node
+    if node.left ≠ Φ
+      Enqueue Node.left into Q;
+    if node.right ≠ Φ
+      Enqueue node.right into Q;
+  }
+}
+
+CHECK NOTES
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+binary trees:
+------------
+
+CHECK NOTES
+
+expression tree:
+---------------
+
+CHECK NOTES
