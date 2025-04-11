@@ -6,7 +6,7 @@ bool binarySearch(int arr[], int n, int target) {
     int low = 0, high = n - 1;
 
     while (low <= high) {
-        int mid = low + (high - low) / 2;
+        int mid = (high + low) / 2;
 
         // Check if the target is at the middle. Fill in the blanks (?).
         if (arr[mid] == target) {

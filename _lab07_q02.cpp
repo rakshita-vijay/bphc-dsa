@@ -34,7 +34,7 @@ class CheckoutLane {
     Customer current_customer;
 };
 
-CheckoutLane::CheckoutLane() : cashier_available(true), customers_served(0) {}
+CheckoutLane::CheckoutLane() : cashier_available(true), customers_served(0), current_customer(0) {}
 void CheckoutLane::enqueue(const Customer& customer) {
   queue.push(customer);
 }

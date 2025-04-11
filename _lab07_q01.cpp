@@ -57,7 +57,7 @@ public:
         Node* temp = rear;
         rear = rear->prev;
         if (rear) rear->next = nullptr;
-        else rear = nullptr;
+        else front = nullptr;
         delete temp;
         return val;
     }
@@ -66,8 +66,21 @@ public:
 
 bool isPalindrome(string s) {
   /* ??? */
-  for (int ind = 0; ind < s.length() / 2; ind++) {
-    if (s[ind] == s[s.length() - 1 - ind]) {
+  // int slen = s.length();
+  // for (int ind = 0; ind <= slen / 2; ind++) {
+  //   cout << s[ind] << ", " << s[slen - 1 - ind] << endl;
+  //   if (s[ind] != s[slen - 1 - ind]) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+
+  int l = 0;
+  int r = s.length() - 1;
+  while (r > l) {
+    if (s[l] == s[r]) {
+      l++;
+      r--;
       continue;
     } else {
       return false;
@@ -84,21 +97,21 @@ bool canFormPalindrome(Deque& dq, string s = "") {
 
   char frontChar = dq.popFront();
   if (canFormPalindrome(dq, s+frontChar)) {
-    dq.pushFront(frontChar);
     return true;
   }
+  dq.pushFront(frontChar);
 
   char backChar = dq.popBack();
   if (canFormPalindrome(dq, s+backChar)) {
-    dq.pushBack(backChar);
     return true;
   }
+  dq.pushBack(backChar);
   return false;
 }
 
 int main() {
     Deque dq;
-    string input = "rearcca";
+    string input = "madama";
     // for (char c : input) dq.pushBack(c);
     for (int i = 0; i < input.length(); i++) {
       dq.pushBack(input[i]);
