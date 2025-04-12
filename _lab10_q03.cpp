@@ -21,7 +21,6 @@ class MinHeap
 private:
     vector<int> heap;
     int heapSize;
-    int heapCapacity;
     void buildMinHeap();
     void bubbleDown(int index);
     void bubbleUp(int index);
@@ -31,13 +30,13 @@ public:
     // initializes an empty heap
     MinHeap()
     {
-        heapSize = heapCapacity = 0;
+        heapSize = 0;
     }
     // initializes the heap with the given elements.
     // This runs BUILD_MIN_HEAP operation internally.
     MinHeap(vector<int> elems)
     {
-        heapSize = heapCapacity = elems.size();
+        heapSize = elems.size();
 
         // hard-copy of elements into the heap
         // for (int elem : elems)
@@ -73,17 +72,7 @@ void MinHeap::buildMinHeap()
 // Time Complexity = O(log n)
 void MinHeap::insert(int elem)
 {
-    if (heapSize < heap.size())
-    {
-        // update the index with the new element
-        heap[heapSize] = elem;
-    }
-    else
-    {
-        // append at the back
-        heap.push_back(elem);
-        ++heapCapacity;
-    }
+    heap.push_back(elem);
 
     // increment heap size
     ++heapSize;
@@ -144,7 +133,7 @@ vector<int> MinHeap::sort()
     }
 
     heap.clear();
-    heapSize = heapCapacity = 0;
+    heapSize = 0;
 
     // Populate heap
     // for (int elem : sortedList)
@@ -305,7 +294,7 @@ int longestJobFirst(int M, int N, vector<int> jobs)
         t += minJobTime;
 
         // if all jobs are allocated, break
-        if (minHeap.empty())
+        if (ind < 0)
             break;
     }
 
