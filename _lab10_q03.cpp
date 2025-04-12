@@ -110,7 +110,7 @@ int MinHeap::extractMin()
     return item;
 }
 
-// Heap Sort Algorithm.
+// Heap Sort Algorithm
 // Returns the sorted list of elements in the Min Heap.
 // Time Complexity = O(n * log n)
 vector<int> MinHeap::sort()
