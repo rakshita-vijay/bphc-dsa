@@ -30,7 +30,7 @@ algorithm pop() {
   if empty() then
     throw StackEmpty;
   else
-    t = t - 1
+    t = t - 1;
     return s[t + 1];
 }
 complexity: O(1)

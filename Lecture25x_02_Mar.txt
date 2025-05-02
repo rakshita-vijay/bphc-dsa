@@ -1,0 +1,101 @@
+insertion & deletion from a bst:
+-------------------------------
+Node* insert(Node* root, int key) {
+    if (root == NULL) return new Node(key);
+    if (key < root->val) root->left = insert(root->left, key);
+    else if (key > root->val) root->right = insert(root->right, key);
+    return root;
+}
+
+Node* minValueNode(Node* node) {
+    while (node->left != NULL) node = node->left;
+    return node;
+}
+
+Node* deleteNode(Node* root, int key) {
+    if (root == NULL) return root;
+
+    if (key < root->val) root->left = deleteNode(root->left, key);
+    else if (key > root->val) root->right = deleteNode(root->right, key);
+    else {
+        // Node with 0 or 1 child
+        if ((root->left == NULL) && (root->right == NULL)) {
+          delete root;
+          return root;
+        } else if (root->left == NULL) {
+            Node* temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if (root->right == NULL) {
+            Node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        // Node with 2 children
+        Node* temp = minValueNode(root->right);
+        root->val = temp->val;
+        root->right = deleteNode(root->right, temp->val);
+    }
+    return root;
+}
+
+// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+counting & radix sort:
+---------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// A utility function to get the maximum value in the array
+int getMax(const vector<int>& arr) {
+    return *max_element(arr.begin(), arr.end());
+}
+
+// A function to do counting sort of arr[] according to the digit represented by exp
+void countingSort(vector<int>& arr, int exp) {
+    int n = arr.size();
+    vector<int> output(n); // output array
+    int count[10] = {0};
+
+    // Count occurrences of digits
+    for (int i = 0; i < n; i++)
+        count[(arr[i] / exp) % 10]++;
+
+    // Change count[i] so it contains actual positions
+    for (int i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+
+    // Build the output array (stable sort, so traverse from end)
+    for (int i = n - 1; i >= 0; i--) {
+        int idx = (arr[i] / exp) % 10;
+        output[count[idx] - 1] = arr[i];
+        count[idx]--;
+    }
+
+    // Copy the output array to arr[]
+    for (int i = 0; i < n; i++)
+        arr[i] = output[i];
+}
+
+// Main radix sort function
+void radixSort(vector<int>& arr) {
+    int maxNum = getMax(arr);
+
+    // Apply counting sort for every digit (exp = 1, 10, 100, ...)
+    for (int exp = 1; maxNum / exp > 0; exp *= 10)
+        countingSort(arr, exp);
+}
+
+// Driver code
+int main() {
+    vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+    radixSort(arr);
+
+    cout << "Sorted array: ";
+    for (int num : arr)
+        cout << num << " ";
+    return 0;
+}

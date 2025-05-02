@@ -97,7 +97,7 @@ external node: d, g, h, e, i, j, k
 ancestors of a node: nodes above it in the same path
 level / depth of a node: root is zero, next is one - calculate from that
 height of a node: e=0, f=1, b=max(e,f)+1
-height of a tree: k to a - 3
+height of a tree: k to a :- 3
 descendants of a node:
 
 what is a subtree?: f,i,j,k (other subtrees exist)
